@@ -64,26 +64,13 @@ export default function DashboardLayout({ children }) {
     { key: 'analytics', text: t('sidebar.analytics'), icon: <AnalyticsIcon /> },
     { key: 'customers', text: t('sidebar.customers'), icon: <PeopleIcon /> },
     { key: 'products', text: t('sidebar.products'), icon: <InventoryIcon /> },
-    { key: 'orders', text: t('sidebar.orders'), icon: <ShoppingCartIcon />, badge: 3 },
+   
     { key: 'transactions', text: t('sidebar.transactions'), icon: <ReceiptIcon /> },
     { key: 'reports', text: t('sidebar.reports'), icon: <TrendingUpIcon /> },
   ];
 
-  const bottomMenuItems = [
-    { key: 'settings', text: t('sidebar.settings'), icon: <SettingsIcon /> },
-    { key: 'help', text: t('sidebar.helpCenter'), icon: <HelpIcon /> },
-  ];
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
-  };
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleProfileMenuClose = () => {
-    setAnchorEl(null);
   };
 
   const handleNotificationOpen = (event) => {
@@ -212,68 +199,6 @@ export default function DashboardLayout({ children }) {
           ))}
         </List>
       </Box>
-
-      {/* Bottom Navigation */}
-      <Box sx={{ px: 2, pb: 2 }}>
-        <Divider sx={{ mb: 2 }} />
-        <List>
-          {bottomMenuItems.map((item) => (
-            <ListItem key={item.key} disablePadding sx={{ mb: 0.5 }}>
-              <ListItemButton sx={{ borderRadius: 2, py: 1.5 }}>
-                <ListItemIcon sx={{ minWidth: 40, color: 'text.secondary' }}>
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.text}
-                  primaryTypographyProps={{
-                    fontSize: '0.9rem',
-                    fontWeight: 500,
-                  }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-
-        {/* User Profile Card */}
-        <Box
-          sx={{
-            mt: 2,
-            p: 2,
-            borderRadius: 3,
-            bgcolor: mode === 'light' ? 'grey.100' : 'background.default',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1.5,
-          }}
-        >
-          <Avatar
-            sx={{
-              width: 42,
-              height: 42,
-              bgcolor: 'primary.main',
-              fontSize: '1rem',
-            }}
-          >
-            KS
-          </Avatar>
-          <Box sx={{ flex: 1, minWidth: 0 }}>
-            <Typography
-              variant="body2"
-              sx={{ fontWeight: 600, lineHeight: 1.3 }}
-              noWrap
-            >
-              Kabeer Singh
-            </Typography>
-            <Typography variant="caption" color="text.secondary" noWrap>
-              {t('sidebar.admin')}
-            </Typography>
-          </Box>
-          <IconButton size="small" onClick={handleProfileMenuOpen}>
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </Box>
-      </Box>
     </Box>
   );
 
@@ -300,40 +225,6 @@ export default function DashboardLayout({ children }) {
           >
             <MenuIcon />
           </IconButton>
-
-          {/* Search Bar */}
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 1,
-              flex: 1,
-              maxWidth: 400,
-              px: 2,
-              py: 1,
-              borderRadius: 2,
-              bgcolor: mode === 'light' ? 'grey.100' : 'background.default',
-            }}
-          >
-            <SearchIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
-            <Typography variant="body2" color="text.secondary">
-              {t('header.search')}
-            </Typography>
-            <Box
-              component="span"
-              sx={{
-                ml: 'auto',
-                px: 1,
-                py: 0.25,
-                borderRadius: 1,
-                bgcolor: mode === 'light' ? 'grey.200' : 'grey.800',
-                fontSize: '0.75rem',
-                color: 'text.secondary',
-              }}
-            >
-              ⌘K
-            </Box>
-          </Box>
 
           <Box sx={{ flex: 1 }} />
 
@@ -362,22 +253,6 @@ export default function DashboardLayout({ children }) {
                 <Badge badgeContent={4} color="error">
                   <NotificationsIcon />
                 </Badge>
-              </IconButton>
-            </Tooltip>
-
-            {/* Profile */}
-            <Tooltip title={t('header.profile')}>
-              <IconButton onClick={handleProfileMenuOpen} sx={{ ml: 1 }}>
-                <Avatar
-                  sx={{
-                    width: 36,
-                    height: 36,
-                    bgcolor: 'primary.main',
-                    fontSize: '0.875rem',
-                  }}
-                >
-                  KS
-                </Avatar>
               </IconButton>
             </Tooltip>
           </Box>
@@ -471,54 +346,7 @@ export default function DashboardLayout({ children }) {
         </MenuItem>
       </Menu>
 
-      {/* Notifications Menu */}
-      <Menu
-        anchorEl={notificationAnchor}
-        open={Boolean(notificationAnchor)}
-        onClose={handleNotificationClose}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-        PaperProps={{
-          sx: {
-            mt: 1,
-            width: 320,
-            maxHeight: 400,
-            borderRadius: 2,
-          },
-        }}
-      >
-        <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider' }}>
-          <Typography variant="h6" sx={{ fontSize: '1rem', fontWeight: 600 }}>
-            {t('notifications.title')}
-          </Typography>
-        </Box>
-        {[
-          { title: t('notifications.newOrder'), time: '2 min ago', color: 'primary' },
-          { title: t('notifications.paymentConfirmed'), time: '15 min ago', color: 'success' },
-          { title: t('notifications.newUser'), time: '1 hour ago', color: 'info' },
-          { title: t('notifications.serverUpdate'), time: '3 hours ago', color: 'warning' },
-        ].map((notification, index) => (
-          <MenuItem key={index} onClick={handleNotificationClose} sx={{ py: 1.5 }}>
-            <Box
-              sx={{
-                width: 8,
-                height: 8,
-                borderRadius: '50%',
-                bgcolor: `${notification.color}.main`,
-                mr: 2,
-              }}
-            />
-            <Box>
-              <Typography variant="body2" sx={{ fontWeight: 500 }}>
-                {notification.title}
-              </Typography>
-              <Typography variant="caption" color="text.secondary">
-                {notification.time}
-              </Typography>
-            </Box>
-          </MenuItem>
-        ))}
-      </Menu>
+      
     </Box>
   );
 }

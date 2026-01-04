@@ -174,6 +174,12 @@ function ChartCard({ title, subtitle, weekText, monthText, yearText, months }) {
 export default function DashboardContent() {
   const { t } = useTranslation();
 
+  const months = [
+    t('months.jan'), t('months.feb'), t('months.mar'), t('months.apr'),
+    t('months.may'), t('months.jun'), t('months.jul'), t('months.aug'),
+    t('months.sep'), t('months.oct'), t('months.nov'), t('months.dec')
+  ];
+
   return (
     <Box>
       {/* Page Header */}
@@ -187,7 +193,7 @@ export default function DashboardContent() {
       </Box>
 
       {/* Stats Grid */}
-      <Grid container spacing={3}>
+      <Grid container spacing={3} sx={{ mb: 3 }}>
         <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
           <StatCard
             title={t('dashboard.totalRevenue')}
@@ -230,6 +236,20 @@ export default function DashboardContent() {
             icon={<InventoryIcon />}
             color="warning"
             vsText={t('dashboard.vsLastMonth')}
+          />
+        </Grid>
+      </Grid>
+
+      {/* Chart Section */}
+      <Grid container spacing={3}>
+        <Grid size={{ xs: 12 }}>
+          <ChartCard
+            title={t('dashboard.revenueOverview')}
+            subtitle={t('dashboard.monthlyRevenue')}
+            weekText={t('dashboard.week')}
+            monthText={t('dashboard.month')}
+            yearText={t('dashboard.year')}
+            months={months}
           />
         </Grid>
       </Grid>
