@@ -440,41 +440,7 @@ export default function DashboardLayout({ children }) {
         <Box sx={{ p: { xs: 2, sm: 3 } }}>{children}</Box>
       </Box>
 
-      {/* Profile Menu */}
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleProfileMenuClose}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-        PaperProps={{
-          sx: {
-            mt: 1,
-            minWidth: 200,
-            borderRadius: 2,
-          },
-        }}
-      >
-        <MenuItem onClick={handleProfileMenuClose}>
-          <ListItemIcon>
-            <PersonIcon fontSize="small" />
-          </ListItemIcon>
-          {t('profileMenu.myProfile')}
-        </MenuItem>
-        <MenuItem onClick={handleProfileMenuClose}>
-          <ListItemIcon>
-            <SettingsIcon fontSize="small" />
-          </ListItemIcon>
-          {t('profileMenu.settings')}
-        </MenuItem>
-        <Divider />
-        <MenuItem onClick={handleProfileMenuClose}>
-          <ListItemIcon>
-            <LogoutIcon fontSize="small" />
-          </ListItemIcon>
-          {t('profileMenu.logout')}
-        </MenuItem>
-      </Menu>
+    
 
       {/* Language Menu */}
       <Menu
