@@ -7,6 +7,7 @@
     "appName": "SnowHacks",
     "version": "Dashboard v1.0",
     "mainMenu": "Main Menu",
+    "home": "Home",
     "dashboard": "Dashboard",
     "analytics": "Analytics",
     "customers": "Customers",
@@ -16,7 +17,10 @@
     "reports": "Reports",
     "settings": "Settings",
     "helpCenter": "Help Center",
-    "admin": "Admin"
+    "admin": "Admin",
+    "masters": "Masters",
+    "userManagement": "User Management",
+    "administration": "Administration"
   },
 
   "header": {
@@ -116,5 +120,103 @@
     "oct": "Oct",
     "nov": "Nov",
     "dec": "Dec"
+  },
+
+  "buttons": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "create": "Create",
+    "update": "Update",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "getStarted": "Get Started",
+    "signUp": "Sign Up",
+    "signUpFree": "Sign Up Free",
+    "learnMore": "Learn More",
+    "explore": "Explore Dashboard"
+  },
+
+  "home": {
+    "title": "Welcome to SnowHacks",
+    "subtitle": "Build your next big idea with our modern, scalable, and production-ready template",
+    "cta": {
+      "title": "Ready to Start Building?",
+      "subtitle": "Join thousands of developers building amazing applications with our template"
+    }
+  },
+
+  "features": {
+    "fastDev": {
+      "title": "Fast Development",
+      "description": "Built with Next.js and Material-UI for rapid prototyping"
+    },
+    "secure": {
+      "title": "Secure by Default",
+      "description": "Role-based access control and authentication ready"
+    },
+    "database": {
+      "title": "Database Ready",
+      "description": "PostgreSQL integration with Neon serverless database"
+    },
+    "modern": {
+      "title": "Modern Stack",
+      "description": "React, Next.js, Material-UI, and more cutting-edge tech"
+    },
+    "production": {
+      "title": "Production Ready",
+      "description": "Scalable architecture with best practices built-in"
+    },
+    "performance": {
+      "title": "Performance Optimized",
+      "description": "Fast loading times and smooth animations"
+    }
+  },
+
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "noData": "No data available",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "actions": "Actions",
+    "view": "View",
+    "download": "Download",
+    "upload": "Upload"
+  },
+
+  "auth": {
+    "welcomeBack": "Welcome Back",
+    "signInToContinue": "Sign in to your account to continue",
+    "email": "Email Address",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signingIn": "Signing in...",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign Up",
+    "createAccount": "Create Account",
+    "joinUs": "Join us and start your journey",
+    "fullName": "Full Name",
+    "confirmPassword": "Confirm Password",
+    "agreeToTerms": "I agree to the Terms and Conditions",
+    "creatingAccount": "Creating account...",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign In",
+    "orContinueWith": "or continue with",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithGithub": "Continue with GitHub"
+  },
+
+  "stats": {
+    "totalUsers": "Total Users",
+    "totalSales": "Total Sales",
+    "revenue": "Revenue",
+    "growth": "Growth"
   }
 }

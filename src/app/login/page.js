@@ -19,10 +19,12 @@ import { IconBrandGoogle, IconBrandGithub } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
   const theme = useTheme();
   const router = useRouter();
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -85,7 +87,7 @@ export default function Login() {
               color: 'primary.main'
             }}
           >
-            Welcome Back
+            {t('auth.welcomeBack')}
           </Typography>
           <Typography
             variant="body2"
@@ -95,7 +97,7 @@ export default function Login() {
               textAlign: 'center'
             }}
           >
-            Sign in to your account to continue
+            {t('auth.signInToContinue')}
           </Typography>
 
           {error && (
@@ -127,14 +129,14 @@ export default function Login() {
 
           <Divider sx={{ my: 3 }}>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              or continue with email
+              {t('auth.orContinueWith')}
             </Typography>
           </Divider>
 
           <Box component="form" onSubmit={handleLogin}>
             <TextField
               fullWidth
-              label="Email"
+              label={t('auth.email')}
               type="email"
               required
               value={email}
@@ -143,7 +145,7 @@ export default function Login() {
             />
             <TextField
               fullWidth
-              label="Password"
+              label={t('auth.password')}
               type="password"
               required
               value={password}
@@ -174,14 +176,14 @@ export default function Login() {
               disabled={loading}
               sx={{ py: 1.5, mb: 2, fontWeight: 600 }}
             >
-              {loading ? <CircularProgress size={24} /> : 'Sign In'}
+              {loading ? <CircularProgress size={24} /> : t('auth.signIn')}
             </Button>
 
             <Typography
               variant="body2"
               sx={{ textAlign: 'center', color: 'text.secondary' }}
             >
-              Don't have an account?{' '}
+              {t('auth.noAccount')}{' '}
               <MuiLink
                 component={Link}
                 href="/signup"
@@ -192,7 +194,7 @@ export default function Login() {
                   '&:hover': { textDecoration: 'underline' }
                 }}
               >
-                Sign up
+                {t('auth.signUp')}
               </MuiLink>
             </Typography>
           </Box>

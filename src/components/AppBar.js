@@ -26,20 +26,30 @@ import {
   IconChevronDown,
   IconLogin,
   IconPalette,
+  IconLanguage,
 } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import { useSidebar } from './AppShell';
 import SettingsDrawer from './SettingsDrawer';
 
 export default function AppBar() {
   const theme = useTheme();
   const router = useRouter();
+  const { t, i18n } = useTranslation();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { setMobileDrawerOpen } = useSidebar();
   
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // TODO: Replace with actual auth state
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language || 'en');
+
+  const toggleLanguage = async () => {
+    const newLang = currentLanguage === 'en' ? 'hi' : 'en';
+    await i18n.changeLanguage(newLang);
+    setCurrentLanguage(newLang);
+  };
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -135,6 +145,21 @@ export default function AppBar() {
                   }}
                 >
                   <IconPalette size={22} />
+                </IconButton>
+              </Tooltip>
+
+              {/* Language Switcher */}
+              <Tooltip title={currentLanguage === 'en' ? 'हिंदी' : 'English'}>
+                <IconButton
+                  onClick={toggleLanguage}
+                  sx={{ 
+                    color: 'text.primary',
+                    '&:hover': {
+                      bgcolor: alpha(theme.palette.primary.main, 0.08),
+                    },
+                  }}
+                >
+                  <IconLanguage size={22} />
                 </IconButton>
               </Tooltip>
               
@@ -243,20 +268,20 @@ export default function AppBar() {
                   <ListItemIcon>
                     <IconUser size={20} />
                   </ListItemIcon>
-                  <ListItemText>My Profile</ListItemText>
+                  <ListItemText>{t('profileMenu.myProfile')}</ListItemText>
                 </MenuItem>
                 <MenuItem onClick={handleSettings} sx={{ py: 1.5 }}>
                   <ListItemIcon>
                     <IconSettings size={20} />
                   </ListItemIcon>
-                  <ListItemText>Settings</ListItemText>
+                  <ListItemText>{t('profileMenu.settings')}</ListItemText>
                 </MenuItem>
                 <Divider />
                 <MenuItem onClick={handleLogout} sx={{ py: 1.5, color: 'error.main' }}>
                   <ListItemIcon>
                     <IconLogout size={20} color="inherit" />
                   </ListItemIcon>
-                  <ListItemText>Logout</ListItemText>
+                  <ListItemText>{t('profileMenu.logout')}</ListItemText>
                 </MenuItem>
               </Menu>
             </>
@@ -276,6 +301,21 @@ export default function AppBar() {
                   <IconPalette size={22} />
                 </IconButton>
               </Tooltip>
+
+              {/* Language Switcher */}
+              <Tooltip title={currentLanguage === 'en' ? 'हिंदी' : 'English'}>
+                <IconButton
+                  onClick={toggleLanguage}
+                  sx={{ 
+                    color: 'text.primary',
+                    '&:hover': {
+                      bgcolor: alpha(theme.palette.primary.main, 0.08),
+                    },
+                  }}
+                >
+                  <IconLanguage size={22} />
+                </IconButton>
+              </Tooltip>
               
               {/* Login/Signup Buttons */}
               <Button
@@ -291,7 +331,7 @@ export default function AppBar() {
                   },
                 }}
               >
-                {!isMobile && 'Login'}
+                {!isMobile && t('login')}
               </Button>
               <Button
                 variant="contained"
@@ -303,7 +343,7 @@ export default function AppBar() {
                   px: 3,
                 }}
               >
-                {isMobile ? 'Sign Up' : 'Sign Up'}
+                {t('buttons.signUp')}
               </Button>
             </>
           )}

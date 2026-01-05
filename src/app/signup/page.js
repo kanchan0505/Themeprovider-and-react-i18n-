@@ -21,10 +21,12 @@ import { IconBrandGoogle, IconBrandGithub } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
+import { useTranslation } from 'react-i18next';
 
 export default function Signup() {
   const theme = useTheme();
   const router = useRouter();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -119,7 +121,7 @@ export default function Signup() {
               color: 'primary.main'
             }}
           >
-            Create Account
+            {t('auth.createAccount')}
           </Typography>
           <Typography
             variant="body2"
@@ -129,7 +131,7 @@ export default function Signup() {
               textAlign: 'center'
             }}
           >
-            Sign up to get started
+            {t('auth.joinUs')}
           </Typography>
 
           {error && (
@@ -161,14 +163,14 @@ export default function Signup() {
 
           <Divider sx={{ my: 3 }}>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              or continue with email
+              {t('auth.orContinueWith')}
             </Typography>
           </Divider>
 
           <Box component="form" onSubmit={handleSignup}>
             <TextField
               fullWidth
-              label="Full Name"
+              label={t('auth.fullName')}
               name="name"
               type="text"
               required
@@ -178,7 +180,7 @@ export default function Signup() {
             />
             <TextField
               fullWidth
-              label="Email"
+              label={t('auth.email')}
               name="email"
               type="email"
               required
@@ -188,7 +190,7 @@ export default function Signup() {
             />
             <TextField
               fullWidth
-              label="Password"
+              label={t('auth.password')}
               name="password"
               type="password"
               required
@@ -198,7 +200,7 @@ export default function Signup() {
             />
             <TextField
               fullWidth
-              label="Confirm Password"
+              label={t('auth.confirmPassword')}
               name="confirmPassword"
               type="password"
               required
@@ -246,14 +248,14 @@ export default function Signup() {
               disabled={loading}
               sx={{ py: 1.5, mb: 2, fontWeight: 600 }}
             >
-              {loading ? <CircularProgress size={24} /> : 'Sign Up'}
+              {loading ? <CircularProgress size={24} /> : t('auth.signUp')}
             </Button>
 
             <Typography
               variant="body2"
               sx={{ textAlign: 'center', color: 'text.secondary' }}
             >
-              Already have an account?{' '}
+              {t('auth.haveAccount')}{' '}
               <MuiLink
                 component={Link}
                 href="/login"
@@ -264,7 +266,7 @@ export default function Signup() {
                   '&:hover': { textDecoration: 'underline' }
                 }}
               >
-                Sign in
+                {t('auth.signIn')}
               </MuiLink>
             </Typography>
           </Box>

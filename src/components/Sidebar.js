@@ -25,6 +25,7 @@ import {
   IconMenu4,
 } from "@tabler/icons-react";
 import { useRouter, usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { menuItems } from "./menuConfig";
 import { useSidebar } from "./AppShell";
 
@@ -34,6 +35,7 @@ export default function Sidebar() {
   const router = useRouter();
   const pathname = usePathname();
   const theme = useTheme();
+  const { t } = useTranslation();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { sidebarOpen, setSidebarOpen, mobileDrawerOpen, setMobileDrawerOpen } =
     useSidebar();
@@ -96,12 +98,13 @@ export default function Sidebar() {
   const renderItems = (items, depth = 0, parentKey = "") => (
     <List disablePadding sx={{ px: open || hoverOpen ? 1 : 0.5 }}>
       {items.map((item, idx) => {
-        const localKey = item.id || `${item.label}-${idx}`;
+        const localKey = item.id || `${item.labelKey}-${idx}`;
         const key = parentKey ? `${parentKey}::${localKey}` : localKey;
         const active = item.path && pathname === item.path;
         const hasChildren = !!item.children?.length;
         const paddingLeft = depth * 2;
         const collapsed = !open && !hoverOpen;
+        const label = t(item.labelKey);
 
         const button = (
           <ListItemButton
@@ -143,7 +146,7 @@ export default function Sidebar() {
             }}
           >
             {item.icon && <ListItemIcon sx={{ minWidth: 20 }}>{item.icon}</ListItemIcon>}
-            {(open || hoverOpen) && <ListItemText primary={item.label} />}
+            {(open || hoverOpen) && <ListItemText primary={label} />}
             {(open || hoverOpen) && hasChildren && (
               <Box sx={{ ml: "auto", display: "flex", alignItems: "center" }}>
                 {openGroups[key] ? <IconChevronDown size={16} /> : <IconChevronRight size={16} />}
@@ -155,7 +158,7 @@ export default function Sidebar() {
         return (
           <React.Fragment key={key}>
             {collapsed ? (
-              <Tooltip title={item.label} placement="right" arrow>
+              <Tooltip title={label} placement="right" arrow>
                 {button}
               </Tooltip>
             ) : (

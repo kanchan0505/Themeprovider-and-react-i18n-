@@ -9,29 +9,30 @@ import {
 } from '@tabler/icons-react';
 
 // action/subject used for CASL check (ability.can(action, subject))
+// labelKey is used for i18n translation
 export const menuItems = [
   { 
-    label: 'Home', 
+    labelKey: 'sidebar.home', 
     icon: <IconHome size={20} />, 
     path: '/', 
     action: 'read', 
     subject: 'Home' 
   },
   { 
-    label: 'Dashboard', 
+    labelKey: 'sidebar.dashboard', 
     icon: <IconDashboard size={20} />, 
     path: '/dashboard', 
     action: 'read', 
     subject: 'Dashboard' 
   },
   {
-    label: 'Masters',
+    labelKey: 'sidebar.masters',
     icon: <IconDatabase size={20} />,
     action: 'read',
     subject: 'Masters',
     children: [
       { 
-        label: 'User Management', 
+        labelKey: 'sidebar.userManagement', 
         path: '/masters/user-management', 
         icon: <IconUsers size={16} />, 
         action: 'manage', 
@@ -40,13 +41,13 @@ export const menuItems = [
     ]
   },
   {
-    label: 'Reports',
+    labelKey: 'sidebar.reports',
     icon: <IconChartBar size={20} />,
     action: 'read',
     subject: 'Reports',
     children: [
       { 
-        label: 'Analytics', 
+        labelKey: 'sidebar.analytics', 
         path: '/reports/analytics', 
         icon: <IconFileText size={16} />, 
         action: 'read', 
@@ -55,13 +56,13 @@ export const menuItems = [
     ]
   },
   {
-    label: 'Administration', 
+    labelKey: 'sidebar.administration', 
     icon: <IconSettings size={20} />, 
     action: 'manage', 
     subject: 'all',
     children: [
       { 
-        label: 'Settings', 
+        labelKey: 'sidebar.settings', 
         path: '/settings', 
         icon: <IconSettings size={18} />, 
         action: 'manage', 

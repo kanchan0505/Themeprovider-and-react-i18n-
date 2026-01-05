@@ -7,6 +7,7 @@
     "appName": "स्नोहैक्स",
     "version": "डैशबोर्ड v1.0",
     "mainMenu": "मुख्य मेन्यू",
+    "home": "होम",
     "dashboard": "डैशबोर्ड",
     "analytics": "विश्लेषण",
     "customers": "ग्राहक",
@@ -16,7 +17,10 @@
     "reports": "रिपोर्ट",
     "settings": "सेटिंग्स",
     "helpCenter": "सहायता केंद्र",
-    "admin": "एडमिन"
+    "admin": "एडमिन",
+    "masters": "मास्टर्स",
+    "userManagement": "उपयोगकर्ता प्रबंधन",
+    "administration": "प्रशासन"
   },
 
   "header": {
@@ -116,5 +120,102 @@
     "oct": "अक्टू",
     "nov": "नव",
     "dec": "दिस"
+  },
+
+  "buttons": {
+    "submit": "जमा करें",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "add": "जोड़ें",
+    "create": "बनाएं",
+    "update": "अपडेट करें",
+    "confirm": "पुष्टि करें",
+    "close": "बंद करें",
+    "back": "वापस",
+    "next": "अगला",
+    "getStarted": "शुरू करें",
+    "signUp": "साइन अप",
+    "signUpFree": "मुफ्त साइन अप करें",
+    "learnMore": "और जानें",
+    "explore": "डैशबोर्ड देखें"
+  },
+
+  "home": {
+    "title": "स्नोहैक्स में आपका स्वागत है",
+    "subtitle": "हमारे आधुनिक, स्केलेबल और प्रोडक्शन-रेडी टेम्पलेट के साथ अपना अगला बड़ा आइडिया बनाएं",
+    "cta": {
+      "title": "बनाना शुरू करने के लिए तैयार हैं?",
+      "subtitle": "हजारों डेवलपर्स से जुड़ें जो हमारे टेम्पलेट के साथ शानदार एप्लिकेशन बना रहे हैं"
+    }
+  },
+
+  "features": {
+    "fastDev": {
+      "title": "तेज विकास",
+      "description": "तेजी से प्रोटोटाइपिंग के लिए Next.js और Material-UI के साथ बनाया गया"
+    },
+    "secure": {
+      "title": "डिफ़ॉल्ट रूप से सुरक्षित",
+      "description": "रोल-आधारित एक्सेस कंट्रोल और प्रमाणीकरण तैयार"
+    },
+    "database": {
+      "title": "डेटाबेस तैयार",
+      "description": "Neon सर्वरलेस डेटाबेस के साथ PostgreSQL एकीकरण"
+    },
+    "modern": {
+      "title": "आधुनिक स्टैक",
+      "description": "React, Next.js, Material-UI और अधिक अत्याधुनिक तकनीक"
+    },
+    "production": {
+      "title": "प्रोडक्शन तैयार",
+      "description": "बेस्ट प्रैक्टिस के साथ स्केलेबल आर्किटेक्चर"
+    },
+    "performance": {
+      "title": "प्रदर्शन अनुकूलित",
+      "description": "तेज लोडिंग समय और स्मूथ एनिमेशन"
+    }
+  },
+
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "कुछ गलत हो गया",
+    "noData": "कोई डेटा उपलब्ध नहीं",
+    "search": "खोजें",
+    "filter": "फ़िल्टर",
+    "sort": "क्रमबद्ध करें",
+    "actions": "कार्रवाई",
+    "view": "देखें",
+    "download": "डाउनलोड",
+    "upload": "अपलोड"
+  },
+
+  "auth": {
+    "welcomeBack": "वापसी पर स्वागत है",
+    "signInToContinue": "जारी रखने के लिए अपने खाते में साइन इन करें",
+    "email": "ईमेल पता",
+    "password": "पासवर्ड",
+    "signIn": "साइन इन करें",
+    "signingIn": "साइन इन हो रहा है...",
+    "noAccount": "खाता नहीं है?",
+    "signUp": "साइन अप करें",
+    "createAccount": "खाता बनाएं",
+    "joinUs": "हमसे जुड़ें और अपनी यात्रा शुरू करें",
+    "fullName": "पूरा नाम",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "agreeToTerms": "मैं नियम और शर्तों से सहमत हूं",
+    "creatingAccount": "खाता बना रहा है...",
+    "haveAccount": "पहले से खाता है?",
+    "orContinueWith": "या जारी रखें",
+    "continueWithGoogle": "Google के साथ जारी रखें",
+    "continueWithGithub": "GitHub के साथ जारी रखें"
+  },
+
+  "stats": {
+    "totalUsers": "कुल उपयोगकर्ता",
+    "totalSales": "कुल बिक्री",
+    "revenue": "राजस्व",
+    "growth": "विकास"
   }
 }

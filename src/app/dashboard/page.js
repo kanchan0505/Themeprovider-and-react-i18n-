@@ -15,34 +15,36 @@ import {
   IconCoin,
   IconTrendingUp 
 } from '@tabler/icons-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Dashboard() {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const stats = [
     {
-      title: 'Total Users',
+      title: t('stats.totalUsers'),
       value: '1,234',
       change: '+12%',
       icon: <IconUsers size={32} />,
       color: theme.palette.primary.main
     },
     {
-      title: 'Total Sales',
+      title: t('stats.totalSales'),
       value: '$45,678',
       change: '+8%',
       icon: <IconShoppingCart size={32} />,
       color: theme.palette.success.main
     },
     {
-      title: 'Revenue',
+      title: t('stats.revenue'),
       value: '$12,345',
       change: '+23%',
       icon: <IconCoin size={32} />,
       color: theme.palette.warning.main
     },
     {
-      title: 'Growth',
+      title: t('stats.growth'),
       value: '89%',
       change: '+5%',
       icon: <IconTrendingUp size={32} />,
@@ -53,7 +55,7 @@ export default function Dashboard() {
   return (
     <Box>
       <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>
-        Dashboard
+        {t('sidebar.dashboard')}
       </Typography>
 
       <Grid container spacing={3}>

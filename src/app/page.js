@@ -21,6 +21,7 @@ import {
 } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
@@ -28,41 +29,42 @@ const MotionCard = motion(Card);
 export default function Home() {
   const theme = useTheme();
   const router = useRouter();
+  const { t } = useTranslation();
 
   const features = [
     {
-      title: 'Fast Development',
-      description: 'Built with Next.js and Material-UI for rapid prototyping',
+      title: t('features.fastDev.title'),
+      description: t('features.fastDev.description'),
       icon: <IconBolt size={40} />,
       color: theme.palette.warning.main
     },
     {
-      title: 'Secure by Default',
-      description: 'Role-based access control and authentication ready',
+      title: t('features.secure.title'),
+      description: t('features.secure.description'),
       icon: <IconShield size={40} />,
       color: theme.palette.success.main
     },
     {
-      title: 'Database Ready',
-      description: 'PostgreSQL integration with Neon serverless database',
+      title: t('features.database.title'),
+      description: t('features.database.description'),
       icon: <IconDatabase size={40} />,
       color: theme.palette.info.main
     },
     {
-      title: 'Modern Stack',
-      description: 'React, Next.js, Material-UI, and more cutting-edge tech',
+      title: t('features.modern.title'),
+      description: t('features.modern.description'),
       icon: <IconCode size={40} />,
       color: theme.palette.secondary.main
     },
     {
-      title: 'Production Ready',
-      description: 'Scalable architecture with best practices built-in',
+      title: t('features.production.title'),
+      description: t('features.production.description'),
       icon: <IconRocket size={40} />,
       color: theme.palette.primary.main
     },
     {
-      title: 'Performance Optimized',
-      description: 'Fast loading times and smooth animations',
+      title: t('features.performance.title'),
+      description: t('features.performance.description'),
       icon: <IconTrendingUp size={40} />,
       color: theme.palette.error.main
     }
@@ -96,7 +98,7 @@ export default function Home() {
               backgroundClip: 'text'
             }}
           >
-            Welcome to SnowHacks
+            {t('home.title')}
           </Typography>
           <Typography 
             variant="h5" 
@@ -108,7 +110,7 @@ export default function Home() {
               mx: 'auto'
             }}
           >
-            Build your next big idea with our modern, scalable, and production-ready template
+            {t('home.subtitle')}
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button 
@@ -124,7 +126,7 @@ export default function Home() {
                 fontSize: '1.1rem'
               }}
             >
-              Get Started
+              {t('buttons.getStarted')}
             </Button>
             <Button 
               variant="outlined" 
@@ -139,7 +141,7 @@ export default function Home() {
                 fontSize: '1.1rem'
               }}
             >
-              Sign Up Free
+              {t('buttons.signUpFree')}
             </Button>
           </Box>
         </MotionBox>
@@ -224,7 +226,7 @@ export default function Home() {
               color: 'text.primary'
             }}
           >
-            Ready to Start Building?
+            {t('home.cta.title')}
           </Typography>
           <Typography 
             variant="body1" 
@@ -235,7 +237,7 @@ export default function Home() {
               mx: 'auto'
             }}
           >
-            Join thousands of developers building amazing applications with our template
+            {t('home.cta.subtitle')}
           </Typography>
           <Button 
             variant="contained" 
@@ -250,7 +252,7 @@ export default function Home() {
               fontSize: '1.1rem'
             }}
           >
-            Explore Dashboard
+            {t('buttons.explore')}
           </Button>
         </MotionBox>
       </Container>
