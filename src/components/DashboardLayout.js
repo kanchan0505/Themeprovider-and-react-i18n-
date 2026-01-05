@@ -110,7 +110,7 @@ export default function DashboardLayout({ children }) {
           sx={{
             width: 40,
             height: 40,
-            borderRadius: 2,
+             borderradius: 1.7,
             background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
             display: 'flex',
             alignItems: 'center',
@@ -159,7 +159,7 @@ export default function DashboardLayout({ children }) {
               <ListItemButton
                 selected={item.active}
                 sx={{
-                  borderRadius: 2,
+                   borderradius: 1.7,
                   py: 1.5,
                   '&.Mui-selected': {
                     bgcolor: 'primary.main',
@@ -328,7 +328,7 @@ export default function DashboardLayout({ children }) {
           sx: {
             mt: 1,
             minWidth: 150,
-            borderRadius: 2,
+             borderradius: 1.7,
           },
         }}
       >

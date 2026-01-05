@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import '../lib/i18n';
 import { ThemeProvider } from '@/theme/ThemeContext';
 import AppShell from '@/components/AppShell';
-import SettingsDrawer from '@/components/SettingsDrawer';
 import NProgressBar from '@/components/NProgressBar';
 import AuthProvider from '@/components/AuthProvider';
 
@@ -25,8 +24,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -39,7 +40,6 @@ export default function RootLayout({ children }) {
             ) : (
               <AppShell>{children}</AppShell>
             )}
-            <SettingsDrawer />
           </ThemeProvider>
         </AuthProvider>
       </body>

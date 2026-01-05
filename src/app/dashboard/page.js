@@ -62,7 +62,7 @@ export default function Dashboard() {
             <Card
               sx={{
                 height: '100%',
-                borderRadius: 3,
+                  borderradius: 1.7,
                 border: `1px solid ${theme.palette.divider}`,
                 transition: 'all 0.3s ease',
                 '&:hover': {
@@ -84,7 +84,7 @@ export default function Dashboard() {
                     sx={{
                       width: 50,
                       height: 50,
-                      borderRadius: 2,
+                       borderradius: 1.7,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -102,7 +102,7 @@ export default function Dashboard() {
                       bgcolor: alpha(theme.palette.success.main, 0.1),
                       px: 1,
                       py: 0.5,
-                      borderRadius: 1
+                       borderradius: 1.7,
                     }}
                   >
                     {stat.change}
@@ -126,7 +126,7 @@ export default function Dashboard() {
       <Box sx={{ mt: 4 }}>
         <Card
           sx={{
-            borderRadius: 3,
+              borderradius: 1.7,
             border: `1px solid ${theme.palette.divider}`
           }}
         >

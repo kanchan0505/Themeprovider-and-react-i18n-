@@ -71,7 +71,7 @@ export default function Login() {
         sx={{
           width: '100%',
           maxWidth: 450,
-          borderRadius: 1,
+          borderradius: 1.7,
           boxShadow: theme.shadows[4]
         }}
       >

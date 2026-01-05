@@ -18,26 +18,13 @@ export const colorPresets = {
     light: { main: '#3b82f6', light: '#60a5fa', dark: '#2563eb' },
     dark: { main: '#60a5fa', light: '#93c5fd', dark: '#3b82f6' },
   },
-  purple: {
-    name: 'Purple',
-    light: { main: '#8b5cf6', light: '#a78bfa', dark: '#7c3aed' },
-    dark: { main: '#a78bfa', light: '#c4b5fd', dark: '#8b5cf6' },
-  },
+  
   teal: {
     name: 'Teal',
     light: { main: '#14b8a6', light: '#2dd4bf', dark: '#0d9488' },
     dark: { main: '#2dd4bf', light: '#5eead4', dark: '#14b8a6' },
   },
-  green: {
-    name: 'Green',
-    light: { main: '#22c55e', light: '#4ade80', dark: '#16a34a' },
-    dark: { main: '#4ade80', light: '#86efac', dark: '#22c55e' },
-  },
-  orange: {
-    name: 'Orange',
-    light: { main: '#f97316', light: '#fb923c', dark: '#ea580c' },
-    dark: { main: '#fb923c', light: '#fdba74', dark: '#f97316' },
-  },
+ 
   rose: {
     name: 'Rose',
     light: { main: '#f43f5e', light: '#fb7185', dark: '#e11d48' },
@@ -137,16 +124,18 @@ const getDesignTokens = (mode, colorKey) => {
           }),
     },
     typography: {
-      fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       h1: {
         fontSize: '2.5rem',
-        fontWeight: 700,
+        fontWeight: 600,
         lineHeight: 1.2,
+        letterSpacing: '-0.01em',
       },
       h2: {
         fontSize: '2rem',
         fontWeight: 600,
         lineHeight: 1.3,
+        letterSpacing: '-0.01em',
       },
       h3: {
         fontSize: '1.5rem',
@@ -169,7 +158,7 @@ const getDesignTokens = (mode, colorKey) => {
         lineHeight: 1.5,
       },
       body1: {
-        fontSize: '1rem',
+        fontSize: '0.938rem',
         lineHeight: 1.6,
       },
       body2: {
@@ -179,10 +168,11 @@ const getDesignTokens = (mode, colorKey) => {
       button: {
         textTransform: 'none',
         fontWeight: 500,
+        fontWeight: 500,
       },
     },
     shape: {
-      borderRadius: 12,
+       borderradius: 1.72,
     },
     shadows: [
       'none',
@@ -213,7 +203,7 @@ const getDesignTokens = (mode, colorKey) => {
       MuiCard: {
         styleOverrides: {
           root: {
-            borderRadius: 16,
+             borderradius: 1.76,
             boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
           },
         },
@@ -264,10 +254,12 @@ const getDesignTokens = (mode, colorKey) => {
 export function ThemeProvider({ children }) {
   const [mode, setMode] = useState('light');
   const [colorPreset, setColorPreset] = useState('indigo');
+  const [contrast, setContrast] = useState(0); // -4 to +4, 0 is default
 
   useEffect(() => {
     const savedMode = localStorage.getItem('themeMode');
     const savedColor = localStorage.getItem('themeColor');
+    const savedContrast = localStorage.getItem('themeContrast');
     
     if (savedMode) {
       setMode(savedMode);
@@ -277,6 +269,10 @@ export function ThemeProvider({ children }) {
     
     if (savedColor && colorPresets[savedColor]) {
       setColorPreset(savedColor);
+    }
+
+    if (savedContrast) {
+      setContrast(parseInt(savedContrast, 10));
     }
   }, []);
 
@@ -290,16 +286,24 @@ export function ThemeProvider({ children }) {
     if (colorPresets[colorKey]) {
       setColorPreset(colorKey);
       localStorage.setItem('themeColor', colorKey);
+      setContrast(0); // Reset contrast when changing color
+      localStorage.setItem('themeContrast', '0');
     }
+  };
+
+  const changeContrast = (value) => {
+    const clampedValue = Math.max(-4, Math.min(4, value));
+    setContrast(clampedValue);
+    localStorage.setItem('themeContrast', clampedValue.toString());
   };
 
   const theme = useMemo(
     () => createTheme(getDesignTokens(mode, colorPreset)),
-    [mode, colorPreset]
+    [mode, colorPreset, contrast]
   );
 
   return (
-    <ThemeContext.Provider value={{ mode, toggleTheme, colorPreset, changeColor, colorPresets }}>
+    <ThemeContext.Provider value={{ mode, toggleTheme, colorPreset, changeColor, colorPresets, contrast, changeContrast }}>
       <MUIThemeProvider theme={theme}>
         <CssBaseline />
         {children}

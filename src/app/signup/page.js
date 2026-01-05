@@ -105,7 +105,7 @@ export default function Signup() {
         sx={{
           width: '100%',
           maxWidth: 450,
-          borderRadius: 3,
+            borderradius: 1.7,
           boxShadow: theme.shadows[4]
         }}
       >

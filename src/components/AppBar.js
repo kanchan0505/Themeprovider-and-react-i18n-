@@ -25,9 +25,11 @@ import {
   IconLogout,
   IconChevronDown,
   IconLogin,
+  IconPalette,
 } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 import { useSidebar } from './AppShell';
+import SettingsDrawer from './SettingsDrawer';
 
 export default function AppBar() {
   const theme = useTheme();
@@ -37,6 +39,7 @@ export default function AppBar() {
   
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // TODO: Replace with actual auth state
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -77,7 +80,7 @@ export default function AppBar() {
       sx={{
         backgroundColor: 'background.paper',
         borderBottom: `1px solid ${theme.palette.divider}`,
-        borderRadius: 1,
+        borderradius: 1.7,
       }}
     >
       <Toolbar sx={{ px: { xs: 2, sm: 3 }, minHeight: { xs: 56, sm: 64 } }}>
@@ -120,6 +123,21 @@ export default function AppBar() {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           {isLoggedIn ? (
             <>
+              {/* Theme Settings Button */}
+              <Tooltip title="Theme">
+                <IconButton
+                  onClick={() => setSettingsOpen(true)}
+                  sx={{ 
+                    color: 'text.primary',
+                    '&:hover': {
+                      bgcolor: alpha(theme.palette.primary.main, 0.08),
+                    },
+                  }}
+                >
+                  <IconPalette size={22} />
+                </IconButton>
+              </Tooltip>
+              
               {/* Settings - Hidden on mobile */}
               {!isMobile && (
                 <Tooltip title="Settings">
@@ -144,7 +162,7 @@ export default function AppBar() {
                   ml: 1,
                   px: 1.5,
                   py: 0.5,
-                  borderRadius: 2,
+                  borderradius: 1.7,
                   transition: 'background-color 0.2s',
                   '&:hover': {
                     backgroundColor: alpha(theme.palette.primary.main, 0.08),
@@ -204,7 +222,7 @@ export default function AppBar() {
                   sx: {
                     mt: 1.5,
                     minWidth: 220,
-                    borderRadius: 2,
+                    borderradius: 1.7,
                     overflow: 'visible',
                     filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.1))',
                   },
@@ -244,6 +262,21 @@ export default function AppBar() {
             </>
           ) : (
             <>
+              {/* Theme Settings Button */}
+              <Tooltip title="Theme">
+                <IconButton
+                  onClick={() => setSettingsOpen(true)}
+                  sx={{ 
+                    color: 'text.primary',
+                    '&:hover': {
+                      bgcolor: alpha(theme.palette.primary.main, 0.08),
+                    },
+                  }}
+                >
+                  <IconPalette size={22} />
+                </IconButton>
+              </Tooltip>
+              
               {/* Login/Signup Buttons */}
               <Button
                 variant="text"
@@ -266,7 +299,7 @@ export default function AppBar() {
                 sx={{
                   textTransform: 'none',
                   fontWeight: 600,
-                  borderRadius: 2,
+                  borderradius: 1.7,
                   px: 3,
                 }}
               >
@@ -276,6 +309,12 @@ export default function AppBar() {
           )}
         </Box>
       </Toolbar>
+      
+      {/* Settings Drawer */}
+      <SettingsDrawer 
+        open={settingsOpen} 
+        onClose={() => setSettingsOpen(false)} 
+      />
     </MuiAppBar>
   );
 }

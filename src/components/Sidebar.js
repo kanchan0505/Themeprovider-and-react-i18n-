@@ -120,7 +120,7 @@ export default function Sidebar() {
               py: 1,
               mb: 0.5,
               minHeight: 40,
-              borderRadius: 1,
+              borderradius: 1.7,
               justifyContent: collapsed ? "center" : "flex-start",
               transition: "all 0.18s ease-in-out",
               "&:hover": { backgroundColor: "action.hover" },

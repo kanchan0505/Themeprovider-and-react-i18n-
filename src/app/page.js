@@ -118,7 +118,7 @@ export default function Home() {
               sx={{ 
                 px: 4, 
                 py: 1.5,
-                borderRadius: 2,
+                 borderradius: 1.7,
                 textTransform: 'none',
                 fontWeight: 600,
                 fontSize: '1.1rem'
@@ -133,7 +133,7 @@ export default function Home() {
               sx={{ 
                 px: 4, 
                 py: 1.5,
-                borderRadius: 2,
+                 borderradius: 1.7,
                 textTransform: 'none',
                 fontWeight: 600,
                 fontSize: '1.1rem'
@@ -155,7 +155,7 @@ export default function Home() {
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 sx={{ 
                   height: '100%',
-                  borderRadius: 3,
+                    borderradius: 1.7,
                   border: `1px solid ${theme.palette.divider}`,
                   transition: 'all 0.3s ease',
                   '&:hover': {
@@ -169,7 +169,7 @@ export default function Home() {
                     sx={{ 
                       width: 60, 
                       height: 60, 
-                      borderRadius: 2,
+                       borderradius: 1.7,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -211,7 +211,7 @@ export default function Home() {
             mt: 8, 
             textAlign: 'center',
             p: 6,
-            borderRadius: 3,
+              borderradius: 1.7,
             background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.1)} 100%)`,
             border: `1px solid ${theme.palette.divider}`
           }}
@@ -244,7 +244,7 @@ export default function Home() {
             sx={{ 
               px: 5, 
               py: 1.5,
-              borderRadius: 2,
+               borderradius: 1.7,
               textTransform: 'none',
               fontWeight: 600,
               fontSize: '1.1rem'

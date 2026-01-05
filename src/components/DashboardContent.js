@@ -55,7 +55,7 @@ function StatCard({ title, value, change, changeType, icon, color, vsText }) {
             sx={{
               width: 52,
               height: 52,
-              borderRadius: 3,
+                borderradius: 1.7,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -137,7 +137,7 @@ function ChartCard({ title, subtitle, weekText, monthText, yearText, months }) {
               sx={{
                 flex: 1,
                 height: `${height}%`,
-                borderRadius: 1,
+                borderradius: 1.7,
                 background:
                   index === 11
                     ? `linear-gradient(180deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`
